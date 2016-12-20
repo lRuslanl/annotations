@@ -13,8 +13,6 @@ public class MessageSupportFactory {
 
     private static MessageSupportFactory instance;
     private Properties properties;
-    private MessageRenderer renderer;
-    private MessageProvider provider;
     private ArrayList<AnnotationAnalyzer> analyzers = new ArrayList<AnnotationAnalyzer>();
 
     private MessageSupportFactory() {
@@ -46,14 +44,6 @@ public class MessageSupportFactory {
 
     public static MessageSupportFactory getInstance() {
         return instance;
-    }
-
-    public MessageRenderer getMessageRenderer() {
-        return renderer;
-    }
-
-    public MessageProvider getMessageProvider() {
-        return provider;
     }
 
     public Object getBean(String name) throws Exception {
