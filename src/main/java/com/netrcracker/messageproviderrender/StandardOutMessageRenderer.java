@@ -16,6 +16,8 @@ public class StandardOutMessageRenderer implements MessageRenderer {
         }
         System.out.println(messageProvider.getMessage());
     }
+
+    @AutoInject
     public void render() {
         if (messageProvider == null) {
             throw new RuntimeException("You must set the property messageProvider of class:" +

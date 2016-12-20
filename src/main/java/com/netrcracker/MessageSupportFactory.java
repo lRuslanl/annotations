@@ -42,9 +42,10 @@ public class MessageSupportFactory {
     }
 
     private void addAnalyzers() {
-        addAnalyzer(new AutoInjectAnalyzer(properties));
-        addAnalyzer(new NotNullAnalyzer());
         addAnalyzer(new AutowiredAnalyzer(properties));
+        addAnalyzer(new NotNullAnalyzer());
+
+        addAnalyzer(new AutoInjectAnalyzer(properties));
     }
 
     public static MessageSupportFactory getInstance() {

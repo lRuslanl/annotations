@@ -21,14 +21,8 @@ public class AutoInjectAnalyzer implements AnnotationAnalyzer{
         for(Method method : methods){
             if(method.isAnnotationPresent(AutoInject.class)){
                 method.setAccessible(true);
-                method.invoke(instance, Class.forName(properties.getProperty(method.getAnnotation(AutoInject.class).value())).newInstance());
+                method.invoke(instance);
                 method.setAccessible(false);
-            }
-        }
-
-        for(Field field:fields){
-            if (field.isAnnotationPresent(AutoInject.class)){
-                field.set(instance, Class.forName(properties.getProperty(field.getAnnotation(AutoInject.class).value())).newInstance());
             }
         }
 
