@@ -2,18 +2,16 @@ package com.netrcracker.annotations.analyzers;
 
 
 import com.netrcracker.MessageSupportFactory;
-import com.netrcracker.annotations.AutoInject;
 import com.netrcracker.annotations.Autowired;
 import com.netrcracker.annotations.IgnoreAnnotation;
-import com.netrcracker.messageproviderrender.MessageProvider;
 
 import java.lang.reflect.Field;
 import java.util.Properties;
 
-public class AutowiredAnalyzer implements AnnotationAnalyzer{
+public class AutowiredAnalyzer implements AnnotationAnalyzer {
     private Properties properties;
 
-    public AutowiredAnalyzer(Properties properties){
+    public AutowiredAnalyzer(Properties properties) {
         this.properties = properties;
     }
 
@@ -21,7 +19,7 @@ public class AutowiredAnalyzer implements AnnotationAnalyzer{
 
         Field[] fields = clazz.getDeclaredFields();
         for (Field field : fields) {
-            if(field.isAnnotationPresent(Autowired.class)&&!field.isAnnotationPresent(IgnoreAnnotation.class)) {
+            if (field.isAnnotationPresent(Autowired.class) && !field.isAnnotationPresent(IgnoreAnnotation.class)) {
                 field.setAccessible(true);
                 field.set(instance, MessageSupportFactory.getInstance().getMessageProvider());
             }

@@ -9,18 +9,19 @@ import java.lang.reflect.Method;
 import java.util.Properties;
 
 
-public class AutoInjectAnalyzer implements AnnotationAnalyzer{
+public class AutoInjectAnalyzer implements AnnotationAnalyzer {
     private Properties properties;
 
-    public AutoInjectAnalyzer(Properties properties){
+    public AutoInjectAnalyzer(Properties properties) {
         this.properties = properties;
     }
-    public void parse(Class<?> clazz, Object instance ) throws Exception{
+
+    public void parse(Class<?> clazz, Object instance) throws Exception {
         Method[] methods = clazz.getDeclaredMethods();
         Field[] fields = clazz.getDeclaredFields();
 
-        for(Method method : methods){
-            if(method.isAnnotationPresent(AutoInject.class)&&!method.isAnnotationPresent(IgnoreAnnotation.class)){
+        for (Method method : methods) {
+            if (method.isAnnotationPresent(AutoInject.class) && !method.isAnnotationPresent(IgnoreAnnotation.class)) {
                 method.setAccessible(true);
                 method.invoke(instance);
                 method.setAccessible(false);

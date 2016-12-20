@@ -7,6 +7,4 @@ public class ComponentAnalyzer {
     public static boolean isComponent(Class<?> clazz) {
         return clazz.isAnnotationPresent(Component.class);
     }
-
-
 }

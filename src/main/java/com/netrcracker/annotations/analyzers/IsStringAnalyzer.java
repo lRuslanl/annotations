@@ -11,14 +11,14 @@ public class IsStringAnalyzer implements AnnotationAnalyzer {
         Field[] fields = clazz.getDeclaredFields();
         for (Field field : fields) {
 
-                field.setAccessible(true);
+            field.setAccessible(true);
 
-            if (field.isAnnotationPresent(IsString.class)&&!field.isAnnotationPresent(IgnoreAnnotation.class)) {
+            if (field.isAnnotationPresent(IsString.class) && !field.isAnnotationPresent(IgnoreAnnotation.class)) {
                 if (!field.getType().equals(String.class)) {
                     throw new Exception("Annotation IsString should be on String element");
                 }
             }
-                field.setAccessible(false);
+            field.setAccessible(false);
 
         }
     }

@@ -8,7 +8,7 @@ import com.netrcracker.annotations.NotNull;
 public class HelloWorldMessageProvider implements MessageProvider {
     @NotNull
     @IsString
-    private String hello ="Hello World!";
+    private String hello = "Hello World!";
 
     public String getMessage() {
         return hello;

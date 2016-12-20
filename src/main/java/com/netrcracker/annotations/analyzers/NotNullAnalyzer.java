@@ -15,9 +15,9 @@ public class NotNullAnalyzer implements AnnotationAnalyzer {
                 field.setAccessible(true);
                 access = true;
             }
-            if (field.isAnnotationPresent(NotNull.class)&&!field.isAnnotationPresent(IgnoreAnnotation.class)) {
+            if (field.isAnnotationPresent(NotNull.class) && !field.isAnnotationPresent(IgnoreAnnotation.class)) {
                 if (field.get(instance) == null)
-                    throw new Exception("Field couldn't be null "+field.getName());
+                    throw new Exception("Field couldn't be null " + field.getName());
             }
             if (access) {
                 field.setAccessible(false);

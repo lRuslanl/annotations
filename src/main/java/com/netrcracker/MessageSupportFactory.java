@@ -16,6 +16,7 @@ public class MessageSupportFactory {
     private MessageRenderer renderer;
     private MessageProvider provider;
     private ArrayList<AnnotationAnalyzer> analyzers = new ArrayList<AnnotationAnalyzer>();
+
     private MessageSupportFactory() {
         properties = new Properties();
 
@@ -23,16 +24,16 @@ public class MessageSupportFactory {
             properties.load(new FileInputStream("msf.properties"));
             String rendererClass = properties.getProperty("renderer.class");
             String providerClass = properties.getProperty("provider.class");
-            renderer = (MessageRenderer)Class.forName(rendererClass).newInstance();
-            provider = (MessageProvider)Class.forName(providerClass).newInstance();
-        }
-        catch (Exception ex){
+            renderer = (MessageRenderer) Class.forName(rendererClass).newInstance();
+            provider = (MessageProvider) Class.forName(providerClass).newInstance();
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
         addAnalyzers();
         //renderer.setMessageProvider(provider);
         //renderer.render();
     }
+
     static {
         instance = new MessageSupportFactory();
     }

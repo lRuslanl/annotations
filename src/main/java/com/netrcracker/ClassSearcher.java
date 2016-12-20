@@ -11,8 +11,7 @@ public class ClassSearcher {
     private static Class<?> loadClass(String className) {
         try {
             return Class.forName(className);
-        }
-        catch (ClassNotFoundException e) {
+        } catch (ClassNotFoundException e) {
             throw new RuntimeException(className);
         }
     }

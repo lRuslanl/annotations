@@ -21,11 +21,11 @@ public class StandardOutMessageRenderer implements MessageRenderer {
 
     @AutoInject
     @IgnoreAnnotation
-    public void setMessageProvider(MessageProvider provider){
+    public void setMessageProvider(MessageProvider provider) {
         this.messageProvider = provider;
     }
 
-    public MessageProvider getMessageProvider(){
+    public MessageProvider getMessageProvider() {
         return this.messageProvider;
     }
 }
