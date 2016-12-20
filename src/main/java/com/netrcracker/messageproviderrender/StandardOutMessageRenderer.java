@@ -7,7 +7,7 @@ import com.netrcracker.annotations.IgnoreAnnotation;
 
 @Component
 public class StandardOutMessageRenderer implements MessageRenderer {
-    @Autowired
+    @Autowired("provider.class")
     private MessageProvider messageProvider;
 
     @AutoInject

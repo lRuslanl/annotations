@@ -21,7 +21,7 @@ public class AutowiredAnalyzer implements AnnotationAnalyzer {
         for (Field field : fields) {
             if (field.isAnnotationPresent(Autowired.class) && !field.isAnnotationPresent(IgnoreAnnotation.class)) {
                 field.setAccessible(true);
-                field.set(instance, MessageSupportFactory.getInstance().getMessageProvider());
+                field.set(instance,Class.forName(properties.getProperty(field.getAnnotation(Autowired.class).value())).newInstance());
             }
         }
     }
