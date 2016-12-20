@@ -22,10 +22,6 @@ public class MessageSupportFactory {
 
         try {
             properties.load(new FileInputStream("msf.properties"));
-            String rendererClass = properties.getProperty("renderer.class");
-            String providerClass = properties.getProperty("provider.class");
-            renderer = (MessageRenderer) Class.forName(rendererClass).newInstance();
-            provider = (MessageProvider) Class.forName(providerClass).newInstance();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
