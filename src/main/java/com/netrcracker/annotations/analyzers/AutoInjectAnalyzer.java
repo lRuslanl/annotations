@@ -2,8 +2,6 @@ package com.netrcracker.annotations.analyzers;
 
 import com.netrcracker.annotations.AutoInject;
 import com.netrcracker.annotations.IgnoreAnnotation;
-
-import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.Properties;

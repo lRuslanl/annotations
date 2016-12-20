@@ -30,8 +30,7 @@ public class MessageSupportFactory {
             ex.printStackTrace();
         }
         addAnalyzers();
-        //renderer.setMessageProvider(provider);
-        //renderer.render();
+        
     }
 
     static {

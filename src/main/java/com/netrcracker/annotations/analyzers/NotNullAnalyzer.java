@@ -4,7 +4,6 @@ import com.netrcracker.annotations.IgnoreAnnotation;
 import com.netrcracker.annotations.NotNull;
 
 import java.lang.reflect.Field;
-import java.util.Properties;
 
 public class NotNullAnalyzer implements AnnotationAnalyzer {
     public void parse(Class<?> clazz, Object instance) throws Exception {
