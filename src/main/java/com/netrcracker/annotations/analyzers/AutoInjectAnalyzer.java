@@ -1,6 +1,7 @@
 package com.netrcracker.annotations.analyzers;
 
 import com.netrcracker.annotations.AutoInject;
+import com.netrcracker.annotations.IgnoreAnnotation;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -19,7 +20,7 @@ public class AutoInjectAnalyzer implements AnnotationAnalyzer{
         Field[] fields = clazz.getDeclaredFields();
 
         for(Method method : methods){
-            if(method.isAnnotationPresent(AutoInject.class)){
+            if(method.isAnnotationPresent(AutoInject.class)&&!method.isAnnotationPresent(IgnoreAnnotation.class)){
                 method.setAccessible(true);
                 method.invoke(instance);
                 method.setAccessible(false);

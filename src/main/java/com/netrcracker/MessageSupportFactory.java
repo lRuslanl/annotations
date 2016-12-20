@@ -44,8 +44,8 @@ public class MessageSupportFactory {
     private void addAnalyzers() {
         addAnalyzer(new AutowiredAnalyzer(properties));
         addAnalyzer(new NotNullAnalyzer());
-
         addAnalyzer(new AutoInjectAnalyzer(properties));
+        addAnalyzer(new IsStringAnalyzer());
     }
 
     public static MessageSupportFactory getInstance() {

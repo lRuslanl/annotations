@@ -2,6 +2,9 @@ package com.netrcracker.annotations.analyzers;
 
 
 import com.netrcracker.MessageSupportFactory;
+import com.netrcracker.annotations.AutoInject;
+import com.netrcracker.annotations.Autowired;
+import com.netrcracker.annotations.IgnoreAnnotation;
 import com.netrcracker.messageproviderrender.MessageProvider;
 
 import java.lang.reflect.Field;
@@ -15,10 +18,13 @@ public class AutowiredAnalyzer implements AnnotationAnalyzer{
     }
 
     public void parse(Class<?> clazz, Object instance) throws Exception {
+
         Field[] fields = clazz.getDeclaredFields();
         for (Field field : fields) {
-            field.setAccessible(true);
-            field.set(instance, MessageSupportFactory.getInstance().getMessageProvider());
+            if(field.isAnnotationPresent(Autowired.class)&&!field.isAnnotationPresent(IgnoreAnnotation.class)) {
+                field.setAccessible(true);
+                field.set(instance, MessageSupportFactory.getInstance().getMessageProvider());
+            }
         }
     }
 }
